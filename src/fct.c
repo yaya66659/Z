@@ -49,9 +49,19 @@ char * definirUnMotdePasse(char * nomFichier, booleen confirmation){
 
 
 void lanceCmd7zSecure(char * nomfichier, char * motDePasse){
+    char * nomfichierSansExtention;
 
-    char  * nomfichierSansExtention = retourneNomDeFichierSansExtention(nomfichier);
+    if(returnTypeDeFic(nomfichier) == DOSSIER)
+    {
+         nomfichierSansExtention = nomfichier;
+    }
+    else if(returnTypeDeFic(nomfichier) == FICHIER)
+    {
+        nomfichierSansExtention = retourneNomDeFichierSansExtention(nomfichier);
 
+    }
+
+    
     char cmdZ[_SIZE_BUFFER_] = "7z a -t7z -mhe=on -p\"";
     strcat(cmdZ, motDePasse);
     strcat(cmdZ,"\" \"");
@@ -80,6 +90,7 @@ void pause(){
 char * retourneNomDeFichierSansExtention(char * nomFichier){
     char *  nomFichierSansExtention = NULL;
     int posFinDeChaine = 0;
+    int compteurDePoint = 0;
 
     nomFichierSansExtention = malloc((sizeof(char)*_SIZE_BUFFER_));
     if(nomFichierSansExtention == NULL)
@@ -93,12 +104,14 @@ char * retourneNomDeFichierSansExtention(char * nomFichier){
     for(int i =0, x = 0; i< strlen(nomFichier); i++){
         if(nomFichier[i] == '.')
         {
-          
-            break;
+            compteurDePoint++;
+            if(compteurDePoint == compteNombreDePointDansLAChaine(nomFichier))
+               break;
             
         }
       
-  
+       
+
      nomFichierSansExtention[x++] = nomFichier[i];
      posFinDeChaine = x;
     
@@ -110,6 +123,17 @@ char * retourneNomDeFichierSansExtention(char * nomFichier){
 return nomFichierSansExtention;
 }
 
+int compteNombreDePointDansLAChaine(char * nomfichier){
+    int compteur = 0;
+    for(int i = 0; i< strlen(nomfichier); i++)
+    {
+            if(nomfichier[i] == '.')
+                compteur++;
+    }
+
+return compteur;
+
+}
 
 char * returneExtension(char * nomfichier){
     char * extention = NULL;
@@ -162,6 +186,18 @@ extention[posFinDeChaine] = '\0';
 return  extention;
 }
 
+
+typeDefic returnTypeDeFic(char * nomFichier){
+    DWORD attr = GetFileAttributesA(nomFichier);
+
+    if(attr == INVALID_FILE_ATTRIBUTES)
+        return INTROUVABLE;
+    else if(attr & FILE_ATTRIBUTE_DIRECTORY)
+            return DOSSIER;
+    else
+            return FICHIER;
+}
+
 void afficherManuelUtilisation() {
     clearScreen();
     printf("╔══════════════════════════════════════════════════════╗\n");
@@ -171,6 +207,18 @@ void afficherManuelUtilisation() {
     printf("Syntaxe :\n");
     printf("    z [nomdufichier]\n");
     printf("\n");
+    printf("Formats EXCLUS (non compatibles avec la sécurisation) :\n");
+    printf("  ❌ .zip   -> chiffrement faible ou incomplet\n");
+    printf("  ❌ .rar   -> non supporté en création par 7z\n");
+    printf("  ❌ .gz, .bz2, .xz, .tar -> pas de support du mot de passe\n");
+    printf("  ❌ .iso, .wim, .cab     -> formats image/disque non chiffrables\n");
+    printf("  ❌ .7z    -> déjà archivé (inutile de re-chiffrer)\n");
+    printf("\n");
+    printf("Utilisez plutôt cette commande sur des fichiers ordinaires :\n");
+    printf("  ✅ .txt, .pdf, .jpg, .mp3, .docx, etc.\n");
+    printf("\n");
+    printf("Astuce : évitez de passer un fichier déjà compressé ou protégé.\n");
+    printf("         L’outil est prévu pour protéger vos données AVANT l’archivage.\n");
     printf("Description :\n");
     printf("  - le chemin du dossier Z/Bin ou ce trouve  z.exe doit être installé et\n");
     printf("    accessible dans le PATH.\n");
@@ -186,6 +234,12 @@ void afficherManuelUtilisation() {
     printf("Exemple :\n");
     printf("    z monFichier.txt\n");
     printf("    -> Créera : monFichier_Zsecure.7z\n");
+    printf("    z monFichier.txt -debug\n");
+    printf("    -> affiche les inforamtion de debugagge.\n");
+    printf("    z -h\n");
+    printf("    -> affiche ce manuel.\n");
+    printf("    z  --help\n");
+    printf("    -> affiche ce manuel.\n");
     printf("\n");
     printf("Remarques :\n");
     printf("  - La commade 7z utiliser  est la suivante: "); 
