@@ -4,6 +4,8 @@
 
 **Z** est un utilitaire en ligne de commande écrit en **C** qui permet de chiffrer des fichiers en créant une archive 7z sécurisée avec mot de passe. Il s’appuie sur l’utilitaire **7-Zip** pour générer une archive avec entête chiffrée (`-mhe=on`), garantissant que même la liste des fichiers est protégée.
 
+
+## Confidentialité maximale : grâce à l’option -mhe=on, l’archive générée est entièrement chiffrée. Le mot de passe protège non seulement le contenu, mais aussi l’en-tête : il est donc impossible de voir les noms ou le nombre de fichiers sans le mot de passe.
 ---
 
 ## ⚙️ Fonctionnalités
