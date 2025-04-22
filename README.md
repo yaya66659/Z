@@ -41,7 +41,7 @@ L’utilitaire 7-Zip installé
 7z.exe doit être accessible dans le PATH système
 Et mettre le chemin vers :  z.exe dans le PATH système ou utilisteur vous permettra de **l'utiliser depuis n'importe ou dans le terminal.**
 
-📁 Structure du projet
+##📁 Structure du projet
 
 Z/
 ├── src/
@@ -55,12 +55,12 @@ Z/
 └── Makefile
 
 
-👨‍💻 Auteur
+## 👨‍💻 Auteur
 Yann Pichat
 Développeur C passionné par la sécurité des données et la simplicité des outils CLI.
 
 
-📜 Licence
+## 📜 Licence
 Ce projet est distribué sous la licence suivante :
 
 Licence Z - Usage non commercial
