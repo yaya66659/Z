@@ -17,7 +17,7 @@ void activeAffichageUTF8DansLaConsole(){
 
 void videBuffer(){
     int c;
-    while((c = getchar()),c == '\0' && c== EOF);
+    while((c = getchar()),c != '\n' && c!= EOF);
 }
 
 char * definirUnMotdePasse(char * nomFichier, booleen confirmation){
