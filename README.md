@@ -32,6 +32,12 @@ Cela crée une archive sécurisée :
 fichier_Zsecure.7z
 
 ```
+La commanede seul :
+```bash
+z
+```
+Affichera le manuelle d'utilisation.
+
 ## 📦 Commande utilisée
 ```bash
 
@@ -48,15 +54,25 @@ Et mettre le chemin vers :  z.exe dans le PATH système ou utilisteur vous perme
 ##📁 Structure du projet
 
 Z/
+
 ├── src/
+
 │   ├── main.c
+
 │   ├── fct.c
+
 ├── headers/
+
 │   └── fct.h
+
 ├── bin/
+
 ├── obj/
+
 ├── README.md
+
 └── Makefile
+
 
 
 ## 👨‍💻 Auteur
