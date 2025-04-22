@@ -1,0 +1,50 @@
+LisezMoi - Programme Z
+======================
+
+Ce dossier contient l'exécutable z.exe, un outil simple permettant de créer rapidement des archives sécurisées (format .7z) protégées par mot de passe.
+Ce programme utilise 7-Zip en arrière-plan pour créer les archives sécurisées. Il simplifie uniquement l'usage des commandes de 7-Zip et respecte pleinement les termes de licence de 7-Zip.
+
+Pré-requis :
+------------
+- Vous devez avoir installé 7-Zip sur votre ordinateur.
+  Téléchargez-le gratuitement ici : https://www.7-zip.org/
+
+Installation :
+--------------
+1. Installez 7-Zip et localisez le fichier `7z.exe` (par défaut situé dans `C:\Program Files\7-Zip\`).
+2. Copiez le chemin complet vers `7z.exe`.
+3. Ajoutez les chemins de `7z.exe` et du dossier contenant `z.exe` à votre variable d'environnement système PATH.
+
+Sous Windows 10 :
+- Cliquez droit sur « Ce PC » puis « Propriétés ».
+- Cliquez sur « Paramètres système avancés ».
+- Cliquez sur « Variables d'environnement ».
+- Sélectionnez « Path » dans « Variables système », puis cliquez sur « Modifier ».
+- Ajoutez les nouveaux chemins vers les dossiers contenant `7z.exe` et `z.exe`.
+
+Utilisation rapide :
+--------------------
+Depuis une invite de commande, utilisez la syntaxe suivante :
+```
+z [nomDuFichier] 
+```
+Le programme demandera ensuite de saisir un mot de passe et de le confirmer, puis créera une archive sécurisée nommée `nomDuFichier_Zsecure.7z`.
+
+si vous tapez juste :
+```
+z
+```
+le manuel de la commande s'affiche.
+
+Exemple :
+---------
+Si vous avez un fichier nommé `document.txt` :
+```
+z document.txt
+```
+Le résultat sera :
+```
+document_Zsecure.7z
+```
+Ce programme (commande z)a été développé par moi Y.PICHAT et il est distribué sous licence OpenSource. Toute utilisation commerciale est strictement interdite.
+Bonne utilisation !
