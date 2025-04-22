@@ -28,12 +28,12 @@ Cela crée une archive sécurisée :
 fichier_Zsecure.7z
 
 ```
-📦 Commande utilisée
+## 📦 Commande utilisée
 ```bash
 
 7z a -t7z -mhe=on -pMON_MDP archive.7z fichier
 ```
-🧩 Pré-requis
+## 🧩 Pré-requis
 Windows (supporté actuellement)
 
 L’utilitaire 7-Zip installé
