@@ -18,7 +18,9 @@
 
 ## [->] Telechargement:
 
-[Commande z - link](https://drive.google.com/file/d/17K8Urh6V-mEel0wF4DtW0ziz1vBT_6sz/view?usp=sharing)
+[Commande z - link1 Google Drive](https://drive.google.com/file/d/17K8Urh6V-mEel0wF4DtW0ziz1vBT_6sz/view?usp=sharing)
+[Commande z - link2 release GitHUb](https://github.com/yaya66659/Z/releases/latest)
+
 
 ## 🖥️ Utilisation
 
